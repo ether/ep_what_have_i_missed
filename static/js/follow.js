@@ -54,7 +54,7 @@ function showDiff(padId, lastVisitRev){
     });
     display.appendChild(fragment);
     $('#timesliderLink').on('click', function(){
-      document.location = document.location+"/timeslider"
+      document.location = document.location+"/timeslider#"+lastVisitRev
     });
     $.gritter.removeAll();
     $('#ep_what_have_i_missedModal').addClass('popup-show');
