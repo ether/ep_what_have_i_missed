@@ -24,8 +24,6 @@ exports.clientVars = function(hook, context, callback)
   if(!settings.ep_what_have_i_missed) settings.ep_what_have_i_missed = {};
   return callback({
     ep_what_have_i_missed: {
-      followAll: settings.ep_what_have_i_missed.followAll || false,
-      enableFollow: settings.ep_what_have_i_missed.enableFollow || true
     }
   });
 };
@@ -34,8 +32,6 @@ exports.eejsBlock_mySettings = function (hook, context, callback)
 {
   if(!settings.ep_what_have_i_missed) settings.ep_what_have_i_missed = {};
   context.content += eejs.require('ep_what_have_i_missed/templates/settings.ejs', {
-    followAll : settings.ep_what_have_i_missed.followAll || false,
-    enableFollow : settings.ep_what_have_i_missed.enableFollow || true
   });
   callback();
 };
