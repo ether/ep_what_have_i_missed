@@ -1,0 +1,18 @@
+{
+    "parts": [
+        {
+            "name": "ep_what_have_i_missed",
+            "hooks": {
+                "clientVars": "ep_what_have_i_missed/index:clientVars",
+                "eejsBlock_mySettings": "ep_what_have_i_missed/index",
+                "eejsBlock_body": "ep_what_have_i_missed/index",
+                "eejsBlock_customStyles": "ep_what_have_i_missed/index"
+            },
+            "client_hooks": {
+                "postAceInit": "ep_what_have_i_missed/static/js/follow:postAceInit",
+                "handleClientMessage_NEW_CHANGES": "ep_what_have_i_missed/static/js/follow:handleClientMessage_NEW_CHANGES",
+                "handleClientMessage_ACCEPT_COMMIT": "ep_what_have_i_missed/static/js/follow:handleClientMessage_ACCEPT_COMMIT"
+            }
+        }
+    ]
+}

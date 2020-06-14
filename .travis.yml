@@ -1,0 +1,57 @@
+language: node_js
+
+node_js:
+  - "lts/*"
+
+services:
+  - docker
+
+cache: false
+
+install:
+  - "bin/installDeps.sh"
+  - "export GIT_HASH=$(git rev-parse --verify --short HEAD)"
+
+script:
+  - "tests/frontend/travis/runner.sh"
+
+env:
+  global:
+    - secure: "WMGxFkOeTTlhWB+ChMucRtIqVmMbwzYdNHuHQjKCcj8HBEPdZLfCuK/kf4rG\nVLcLQiIsyllqzNhBGVHG1nyqWr0/LTm8JRqSCDDVIhpyzp9KpCJQQJG2Uwjk\n6/HIJJh/wbxsEdLNV2crYU/EiVO3A4Bq0YTHUlbhUqG3mSCr5Ec="
+    - secure: "gejXUAHYscbR6Bodw35XexpToqWkv2ifeECsbeEmjaLkYzXmUUNWJGknKSu7\nEUsSfQV8w+hxApr1Z+jNqk9aX3K1I4btL3cwk2trnNI8XRAvu1c1Iv60eerI\nkE82Rsd5lwUaMEh+/HoL8ztFCZamVndoNgX7HWp5J/NRZZMmh4g="
+
+jobs:
+  include:
+    # we can only frontend tests from the ether/ organization and not from forks.
+    # To request tests to be run ask a maintainer to fork your repo to ether/
+    - if: fork = false
+      name: "Test the Frontend"
+      install:
+        - "mkdir ep_what_have_i_missed"
+        - "mv !(ep_what_have_i_missed) ep_what_have_i_missed"
+        - "git clone https://github.com/ether/etherpad-lite.git etherpad"
+        - "cd etherpad"
+        - "mkdir node_modules"
+        - "mv ../ep_what_have_i_missed node_modules"
+        - "tests/frontend/travis/sauce_tunnel.sh"
+        - "bin/installDeps.sh"
+        - "export GIT_HASH=$(git rev-parse --verify --short HEAD)"
+      script:
+        - "tests/frontend/travis/runner.sh"
+    - name: "Run the Backend tests"
+      install:
+        - "mkdir ep_what_have_i_missed"
+        - "mv !(ep_what_have_i_missed) ep_what_have_i_missed"
+        - "git clone https://github.com/ether/etherpad-lite.git etherpad"
+        - "cd etherpad"
+        - "mkdir node_modules"
+        - "mv ../ep_what_have_i_missed node_modules"
+        - "bin/installDeps.sh"
+        - "cd src && npm install && cd -"
+      script:
+        - "tests/frontend/travis/runnerBackend.sh"
+
+notifications:
+  irc:
+    channels:
+      - "irc.freenode.org#etherpad-lite-dev"
