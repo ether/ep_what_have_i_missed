@@ -1,6 +1,5 @@
 {
     "pad.ep_what_have_i_missed_catchup.title": "What have I missed?",
     "pad.ep_what_have_i_missed_catchup.msg": "Do you want to catch up with this pad?",
-    "pad.ep_what_have_i_missed_catchup.button": "Catch up!",
-    "pad.settings.ep_what_have_i_missed.followAll": "Follow All Authors"
+    "pad.ep_what_have_i_missed_catchup.button": "Catch up!"
 }
