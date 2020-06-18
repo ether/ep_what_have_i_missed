@@ -10,10 +10,6 @@ When an author revisits an old pad they are presented a message saying "Since yo
 1. Atomic: Link to timeslider at point author was last present on the pad.  Useful for full timeline of events.
 2. Differential(default): A "diff" view shows a comparison of before/after line-by-line.  Useful for a quick snap shot of what has changed from point A to Z but does not include steps on the way through and also does not include who has changed what.  For further analysis the Atomic / timeslider view can be used.
 
-The plugin also extends the timeslider view to include a follow author setting (enabled by default) which means when an edit is made and replayed in the timeslider then the edit is brought into focus.
-
-Finally the plugin extends the timeslider to provide a graphical representation of commits <> time.
-
 Security warning: The plugin stores the last revision an author was present on a pad in their browser cookies.  This means the padId is present in their browser cookies.
 
 
