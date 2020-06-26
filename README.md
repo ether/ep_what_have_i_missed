@@ -1,17 +1,20 @@
-ep_what_have_i_missed
-=========
+What have I missed while being away from a pad?  
 
-What have I missed while being away from a pad?  This plugin aids to help authors that have been absent from a pad to be able to "quickly" catch up with what's been changed since they were last present.
-
-The plugin provides multiple interfaces and methods for pad authors to catch up.
+This plugin aids to help authors that have been absent from a pad to be able to "quickly" catch up with what's been changed since they were last present.
 
 When an author revisits an old pad they are presented a message saying "Since you were last here there have been XX changes to this pad.  Review the changes"
 
-1. Atomic: Link to timeslider at point author was last present on the pad.  Useful for full timeline of events.
-2. Differential(default): A "diff" view shows a comparison of before/after line-by-line.  Useful for a quick snap shot of what has changed from point A to Z but does not include steps on the way through and also does not include who has changed what.  For further analysis the Atomic / timeslider view can be used.
+The author is initially presented with a differential snapshot of the changes since they were last present.  
 
-Security warning: The plugin stores the last revision an author was present on a pad in their browser cookies.  This means the padId is present in their browser cookies.
+If this is not sufficient and the author wants additional information then a link to the timeslider(including their previous position) is available.
 
+## Views
+
+ 1. Atomic: Link to timeslider at point author was last present on the pad.  Useful for full timeline of events.
+ 1. Differential(default): A "diff" view shows a comparison of before/after line-by-line.  Useful for a quick snap shot of what has changed from point A to Z but does not include steps on the way through and also does not include who has changed what.  For further analysis the Atomic / timeslider view can be used.
+
+## Security consideration
+The plugin stores the last revision an author was present on a pad in their browser cookies.  This means the padId is present in their browser cookies.
 
 [![Travis (.org)](https://img.shields.io/travis/ether/ep_what_have_i_missed)](https://travis-ci.org/github/ether/ep_what_have_i_missed)
 
