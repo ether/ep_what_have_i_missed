@@ -58,6 +58,9 @@ function showDiff(padId, lastVisitRev){
     });
     $.gritter.removeAll();
     $('#ep_what_have_i_missedModal').addClass('popup-show');
+    $('#ep_what_have_i_missedModal').css("max-height", "100%");
+    $('#ep_what_have_i_missedModal').css("overflow", "auto");
+
   })
 }
 
