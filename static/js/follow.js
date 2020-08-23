@@ -44,7 +44,7 @@ function showDiff(padId, lastVisitRev){
     diff.forEach((part) => {
       // green for additions, red for deletions
       // grey for common parts
-      const color = part.added ? 'green' :
+      const color = part.added ? 'limegreen' :
         part.removed ? 'red' : 'grey';
       span = document.createElement('span');
       span.style.color = color;
