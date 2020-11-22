@@ -1,21 +1,21 @@
 // Copyright John McLear - Etherpad Foundation 2020, Apache2.
-var padcookie = require("ep_etherpad-lite/static/js/pad_cookie").padcookie;
-var hooks = require("ep_etherpad-lite/static/js/pluginfw/hooks");
-var Changeset = require("ep_etherpad-lite/static/js/Changeset");
+var padcookie = require('ep_etherpad-lite/static/js/pad_cookie').padcookie;
+var hooks = require('ep_etherpad-lite/static/js/pluginfw/hooks');
+var Changeset = require('ep_etherpad-lite/static/js/Changeset');
 window.Diff = require('./diff.min');
 
-exports.postAceInit = function(){
+exports.postAceInit = function () {
   // what's on the server
-  var padId = clientVars.padId;
-  var padRev = clientVars.collab_client_vars.rev
+  const padId = clientVars.padId;
+  const padRev = clientVars.collab_client_vars.rev;
 
   // do we have a local copy?
-  var lastVisitRev = padcookie.getPref("ep_what_have_i_missed:"+padId);
-    if(lastVisitRev){
+  const lastVisitRev = padcookie.getPref(`ep_what_have_i_missed:${padId}`);
+  if (lastVisitRev) {
     clientVars.lastVisitRev = lastVisitRev;
     // console.log("padRev", padRev)
     // console.log("lastVisitRev", lastVisitRev)
-    if(padRev > (lastVisitRev+2)){
+    if (padRev > (lastVisitRev + 2)) {
       catchUpMessage(lastVisitRev);
     }
   }
@@ -23,139 +23,138 @@ exports.postAceInit = function(){
   settingsListeners(); // enables listeners for settings
   loadSettings(); // loads settings from cookies
   appendUI(); // update the UI to show who we're following
-}
+};
 
-function buttonListeners(){
-  $('.catchUpButton').on('click', function(){
+function buttonListeners() {
+  $('.catchUpButton').on('click', () => {
     // show Differential
-    showDiff(clientVars.padId, clientVars.lastVisitRev, clientVars.collab_client_vars.rev)
-    console.warn(clientVars.padId, clientVars.lastVisitRev)
-  })
+    showDiff(clientVars.padId, clientVars.lastVisitRev, clientVars.collab_client_vars.rev);
+    console.warn(clientVars.padId, clientVars.lastVisitRev);
+  });
 }
 
-function showDiff(padId, lastVisitRev){
+function showDiff(padId, lastVisitRev) {
   // load latest
-  var latestText = clientVars.collab_client_vars.initialAttributedText.text;
-  var lastVisitTextURI = window.location + "/" + lastVisitRev + "/export/txt";
-  $.get(lastVisitTextURI, function(lastVisitText){
-    var diff = Diff.diffChars(lastVisitText, latestText);
-    var display = document.getElementById('diffDisplay');
-    var fragment = document.createDocumentFragment();
+  const latestText = clientVars.collab_client_vars.initialAttributedText.text;
+  const lastVisitTextURI = `${window.location}/${lastVisitRev}/export/txt`;
+  $.get(lastVisitTextURI, (lastVisitText) => {
+    const diff = Diff.diffChars(lastVisitText, latestText);
+    const display = document.getElementById('diffDisplay');
+    const fragment = document.createDocumentFragment();
     diff.forEach((part) => {
       // green for additions, red for deletions
       // grey for common parts
-      const color = part.added ? 'limegreen' :
-        part.removed ? 'red' : 'grey';
+      const color = part.added ? 'limegreen'
+        : part.removed ? 'red' : 'grey';
       span = document.createElement('span');
       span.style.color = color;
       span.appendChild(document
-        .createTextNode(part.value));
+          .createTextNode(part.value));
       fragment.appendChild(span);
     });
     display.appendChild(fragment);
-    $('#timesliderLink').on('click', function(){
-      document.location = document.location+"/timeslider#"+lastVisitRev
+    $('#timesliderLink').on('click', () => {
+      document.location = `${document.location}/timeslider#${lastVisitRev}`;
     });
     $.gritter.removeAll();
     $('#ep_what_have_i_missedModal').addClass('popup-show');
-    $('#ep_what_have_i_missedModal').css("max-height", "100%");
-    $('#ep_what_have_i_missedModal').css("overflow", "auto");
-
-  })
+    $('#ep_what_have_i_missedModal').css('max-height', '100%');
+    $('#ep_what_have_i_missedModal').css('overflow', 'auto');
+  });
 }
 
-function catchUpMessage(lastVisitRev){
-  var msg = html10n.get("pad.ep_what_have_i_missed_catchup.msg") + "<br><br>";
+function catchUpMessage(lastVisitRev) {
+  const msg = `${html10n.get('pad.ep_what_have_i_missed_catchup.msg')}<br><br>`;
 
-  var button = "<button class='catchUpButton'>"+html10n.get("pad.ep_what_have_i_missed_catchup.button") +"</button>"
+  const button = `<button class='catchUpButton'>${html10n.get('pad.ep_what_have_i_missed_catchup.button')}</button>`;
 
   $.gritter.add({
-    title: html10n.get("pad.ep_what_have_i_missed_catchup.title"),
+    title: html10n.get('pad.ep_what_have_i_missed_catchup.title'),
     text: msg + button,
-    class_name: "warning",
+    class_name: 'warning',
     sticky: true,
   });
 }
 
-exports.handleClientMessage_NEW_CHANGES = function(fnName, msg){
-  padcookie.setPref("ep_what_have_i_missed:"+clientVars.padId, pad.collabClient.getCurrentRevisionNumber());
+exports.handleClientMessage_NEW_CHANGES = function (fnName, msg) {
+  padcookie.setPref(`ep_what_have_i_missed:${clientVars.padId}`, pad.collabClient.getCurrentRevisionNumber());
+};
+
+exports.handleClientMessage_ACCEPT_COMMIT = function (fnName, msg) {
+  padcookie.setPref(`ep_what_have_i_missed:${clientVars.padId}`, pad.collabClient.getCurrentRevisionNumber());
+};
+
+function appendUI() {
 }
 
-exports.handleClientMessage_ACCEPT_COMMIT = function(fnName, msg){
-  padcookie.setPref("ep_what_have_i_missed:"+clientVars.padId, pad.collabClient.getCurrentRevisionNumber());
+function follow(authorId) {
 }
 
-function appendUI(){
+function unfollow(authorId) {
 }
 
-function follow(authorId){
+function followingAuthor(authorId) {
 }
 
-function unfollow(authorId){
-}
-
-function followingAuthor(authorId){
-}
-
-function goToLineNumber(lineNumber){
+function goToLineNumber(lineNumber) {
   // Sets the Y scrolling of the browser to go to this line
-  var $inner = $('iframe[name="ace_outer"]').contents().find('iframe').contents().find('#innerdocbody');
-  var $outerdoc = $('iframe[name="ace_outer"]').contents().find("#outerdocbody");
-  var $outerdocHTML = $('iframe[name="ace_outer"]').contents().find("#outerdocbody").parent();
-  var line = $inner.find("div:nth-child("+(lineNumber+1)+")");
-  var newY = $(line)[0].offsetTop + "px";
-  $outerdoc.css({top: newY +"px"}); // Chrome
+  const $inner = $('iframe[name="ace_outer"]').contents().find('iframe').contents().find('#innerdocbody');
+  const $outerdoc = $('iframe[name="ace_outer"]').contents().find('#outerdocbody');
+  const $outerdocHTML = $('iframe[name="ace_outer"]').contents().find('#outerdocbody').parent();
+  const line = $inner.find(`div:nth-child(${lineNumber + 1})`);
+  const newY = `${$(line)[0].offsetTop}px`;
+  $outerdoc.css({top: `${newY}px`}); // Chrome
   $outerdocHTML.animate({scrollTop: newY}); // needed for FF
 }
 
-function settingsListeners(){
-  $('#options-followAll').on('change', function(){
+function settingsListeners() {
+  $('#options-followAll').on('change', function () {
     clientVars.ep_what_have_i_missed.followAll = !clientVars.ep_what_have_i_missed.followAll; // toggles.
-    padcookie.setPref("ep_what_have_i_missed.followAll", $(this).prop("checked"));
+    padcookie.setPref('ep_what_have_i_missed.followAll', $(this).prop('checked'));
     // if you enable follow All it will set enable to true
-    if($(this).prop("checked")){
+    if ($(this).prop('checked')) {
       clientVars.ep_what_have_i_missed.enableFollow = true;
-      $('#options-enableFollow').prop("checked", true);
+      $('#options-enableFollow').prop('checked', true);
     }
-    updateFollowingUI()
+    updateFollowingUI();
   });
 
-  $('#options-enableFollow').on('click', function(){
+  $('#options-enableFollow').on('click', function () {
     clientVars.ep_what_have_i_missed.enableFollow = !clientVars.ep_what_have_i_missed.enableFollow; // toggles.
-    padcookie.setPref("ep_what_have_i_missed.enableFollow", $(this).prop("checked"));
+    padcookie.setPref('ep_what_have_i_missed.enableFollow', $(this).prop('checked'));
   });
 }
 
-function loadSettings(){
+function loadSettings() {
 
 }
 
-function updateFollowingUI(){
+function updateFollowingUI() {
   // For each person we're following add the eye in the users list.
-  var userRows = $('#otheruserstable').contents().find("tr")
-  $.each(userRows, function(){
-    $(this).find("td > div").text("");
+  var userRows = $('#otheruserstable').contents().find('tr');
+  $.each(userRows, function () {
+    $(this).find('td > div').text('');
   });
-  if(clientVars.ep_what_have_i_missed.followAll){
-    var userRows = $('#otheruserstable').contents().find("tr")
-    $.each(userRows, function(){
-      $(this).find("td > div").text("👁");
-      $(this).find("td > div").css({"font-size":"12px","color":"#666","line-height":"17px","padding-left":"3px"});
+  if (clientVars.ep_what_have_i_missed.followAll) {
+    var userRows = $('#otheruserstable').contents().find('tr');
+    $.each(userRows, function () {
+      $(this).find('td > div').text('👁');
+      $(this).find('td > div').css({'font-size': '12px', 'color': '#666', 'line-height': '17px', 'padding-left': '3px'});
     });
-  }else{
-    $.each(clientVars.ep_what_have_i_missed.following, function(authorId){
+  } else {
+    $.each(clientVars.ep_what_have_i_missed.following, (authorId) => {
       // find the authorId item..
-      var userRow = $('#otheruserstable').contents().find("[data-authorid='"+authorId+"']")
-      $(userRow).find("td > div").text("👁");
-      $(userRow).find("td > div").css({"font-size":"12px","color":"#666","line-height":"17px","padding-left":"3px"});
-    })
+      const userRow = $('#otheruserstable').contents().find(`[data-authorid='${authorId}']`);
+      $(userRow).find('td > div').text('👁');
+      $(userRow).find('td > div').css({'font-size': '12px', 'color': '#666', 'line-height': '17px', 'padding-left': '3px'});
+    });
   }
 }
 
-function isEditingTimeout(){
+function isEditingTimeout() {
   // on initial initialization of pad for 1 second don't drag my focus.
   clientVars.ep_what_have_i_missed.isEditing = true;
-  clientVars.ep_what_have_i_missed.editingTimeout = setTimeout(function(){
+  clientVars.ep_what_have_i_missed.editingTimeout = setTimeout(() => {
     clientVars.ep_what_have_i_missed.isEditing = false;
-  }, 1000)
+  }, 1000);
 }
