@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Verdy p"
+		]
+	},
+	"pad.ep_what_have_i_missed_catchup.title": "Qu’ai-je manqué ?",
+	"pad.ep_what_have_i_missed_catchup.msg": "Voulez-vous rattraper le retard avec ce pad ?",
+	"pad.ep_what_have_i_missed_catchup.button": "Rattraper !"
+}

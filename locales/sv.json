@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"WikiPhoenix"
+		]
+	},
+	"pad.ep_what_have_i_missed_catchup.title": "Vad har jag missat?",
+	"pad.ep_what_have_i_missed_catchup.msg": "Vill du komma ifatt med detta block?",
+	"pad.ep_what_have_i_missed_catchup.button": "Kom ifatt!"
+}

@@ -1,5 +1,8 @@
 {
-    "pad.ep_what_have_i_missed_catchup.title": "Wat heb ik gemist?",
-    "pad.ep_what_have_i_missed_catchup.msg": "Wil je de recente wijzigingen in dit pad zien?",
-    "pad.ep_what_have_i_missed_catchup.button": "Toon recente wijzigingen!"
+	"@metadata": {
+		"authors": []
+	},
+	"pad.ep_what_have_i_missed_catchup.title": "Wat heb ik gemist?",
+	"pad.ep_what_have_i_missed_catchup.msg": "Wil je de recente wijzigingen in dit pad zien?",
+	"pad.ep_what_have_i_missed_catchup.button": "Toon recente wijzigingen!"
 }
