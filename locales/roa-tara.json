@@ -4,5 +4,7 @@
 			"Joetaras"
 		]
 	},
-	"pad.ep_what_have_i_missed_catchup.title": "Ce m'agghie perse?"
+	"pad.ep_what_have_i_missed_catchup.title": "Ce m'agghie perse?",
+	"pad.ep_what_have_i_missed_catchup.msg": "Vuè ccu recupere 'u retarde cu stu pad?",
+	"pad.ep_what_have_i_missed_catchup.button": "Remonde!"
 }

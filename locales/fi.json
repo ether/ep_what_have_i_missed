@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Maantietäjä"
+		]
+	},
+	"pad.ep_what_have_i_missed_catchup.title": "Mitä olen missannut?",
+	"pad.ep_what_have_i_missed_catchup.msg": "Haluatko päästä kiinni tähän tyynyyn?",
+	"pad.ep_what_have_i_missed_catchup.button": "Saavuttaa."
+}
