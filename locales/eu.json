@@ -4,5 +4,7 @@
 			"Izendegi"
 		]
 	},
-	"pad.ep_what_have_i_missed_catchup.title": "Zer galdu dut?"
+	"pad.ep_what_have_i_missed_catchup.title": "Zer galdu dut?",
+	"pad.ep_what_have_i_missed_catchup.msg": "Pad hau harrapatu nahi duzu?",
+	"pad.ep_what_have_i_missed_catchup.button": "Harrapatu!"
 }
