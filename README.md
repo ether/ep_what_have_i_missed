@@ -1,3 +1,5 @@
+![Publish Status](https://github.com/ether/ep_what_have_i_missed/workflows/Node.js%20Package/badge.svg) ![Backend Tests Status](https://github.com/ether/ep_what_have_i_missed/workflows/Backend%20tests/badge.svg)
+
 ## What have I missed while being away from a pad?  
 
 This plugin aids to help authors that have been absent from a pad to be able to "quickly" catch up with what's been changed since they were last present.
