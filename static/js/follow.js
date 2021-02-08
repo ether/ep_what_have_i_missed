@@ -1,10 +1,10 @@
+'use strict';
+
 // Copyright John McLear - Etherpad Foundation 2020, Apache2.
-var padcookie = require('ep_etherpad-lite/static/js/pad_cookie').padcookie;
-var hooks = require('ep_etherpad-lite/static/js/pluginfw/hooks');
-var Changeset = require('ep_etherpad-lite/static/js/Changeset');
+const padcookie = require('ep_etherpad-lite/static/js/pad_cookie').padcookie;
 window.Diff = require('./diff.min');
 
-exports.postAceInit = function () {
+exports.postAceInit = () => {
   // what's on the server
   const padId = clientVars.padId;
   const padRev = clientVars.collab_client_vars.rev;
@@ -20,20 +20,18 @@ exports.postAceInit = function () {
     }
   }
   buttonListeners();
-  settingsListeners(); // enables listeners for settings
-  loadSettings(); // loads settings from cookies
-  appendUI(); // update the UI to show who we're following
 };
 
-function buttonListeners() {
+const buttonListeners = () => {
   $('.catchUpButton').on('click', () => {
     // show Differential
     showDiff(clientVars.padId, clientVars.lastVisitRev, clientVars.collab_client_vars.rev);
     console.warn(clientVars.padId, clientVars.lastVisitRev);
   });
-}
+};
+/* global Diff */
 
-function showDiff(padId, lastVisitRev) {
+const showDiff = (padId, lastVisitRev) => {
   // load latest
   const latestText = clientVars.collab_client_vars.initialAttributedText.text;
   const lastVisitTextURI = `${window.location}/${lastVisitRev}/export/txt`;
@@ -46,7 +44,7 @@ function showDiff(padId, lastVisitRev) {
       // grey for common parts
       const color = part.added ? 'limegreen'
         : part.removed ? 'red' : 'grey';
-      span = document.createElement('span');
+      const span = document.createElement('span');
       span.style.color = color;
       span.appendChild(document
           .createTextNode(part.value));
@@ -61,12 +59,13 @@ function showDiff(padId, lastVisitRev) {
     $('#ep_what_have_i_missedModal').css('max-height', '100%');
     $('#ep_what_have_i_missedModal').css('overflow', 'auto');
   });
-}
+};
 
-function catchUpMessage(lastVisitRev) {
+const catchUpMessage = (lastVisitRev) => {
   const msg = `${html10n.get('pad.ep_what_have_i_missed_catchup.msg')}<br><br>`;
 
-  const button = `<button class='catchUpButton'>${html10n.get('pad.ep_what_have_i_missed_catchup.button')}</button>`;
+  const button = `<button class='catchUpButton'>
+      ${html10n.get('pad.ep_what_have_i_missed_catchup.button')}</button>`;
 
   $.gritter.add({
     title: html10n.get('pad.ep_what_have_i_missed_catchup.title'),
@@ -74,87 +73,14 @@ function catchUpMessage(lastVisitRev) {
     class_name: 'warning',
     sticky: true,
   });
-}
-
-exports.handleClientMessage_NEW_CHANGES = function (fnName, msg) {
-  padcookie.setPref(`ep_what_have_i_missed:${clientVars.padId}`, pad.collabClient.getCurrentRevisionNumber());
 };
 
-exports.handleClientMessage_ACCEPT_COMMIT = function (fnName, msg) {
-  padcookie.setPref(`ep_what_have_i_missed:${clientVars.padId}`, pad.collabClient.getCurrentRevisionNumber());
+exports.handleClientMessage_NEW_CHANGES = (fnName, msg) => {
+  padcookie.setPref(`ep_what_have_i_missed:${clientVars.padId}`,
+      pad.collabClient.getCurrentRevisionNumber());
 };
 
-function appendUI() {
-}
-
-function follow(authorId) {
-}
-
-function unfollow(authorId) {
-}
-
-function followingAuthor(authorId) {
-}
-
-function goToLineNumber(lineNumber) {
-  // Sets the Y scrolling of the browser to go to this line
-  const $inner = $('iframe[name="ace_outer"]').contents().find('iframe').contents().find('#innerdocbody');
-  const $outerdoc = $('iframe[name="ace_outer"]').contents().find('#outerdocbody');
-  const $outerdocHTML = $('iframe[name="ace_outer"]').contents().find('#outerdocbody').parent();
-  const line = $inner.find(`div:nth-child(${lineNumber + 1})`);
-  const newY = `${$(line)[0].offsetTop}px`;
-  $outerdoc.css({top: `${newY}px`}); // Chrome
-  $outerdocHTML.animate({scrollTop: newY}); // needed for FF
-}
-
-function settingsListeners() {
-  $('#options-followAll').on('change', function () {
-    clientVars.ep_what_have_i_missed.followAll = !clientVars.ep_what_have_i_missed.followAll; // toggles.
-    padcookie.setPref('ep_what_have_i_missed.followAll', $(this).prop('checked'));
-    // if you enable follow All it will set enable to true
-    if ($(this).prop('checked')) {
-      clientVars.ep_what_have_i_missed.enableFollow = true;
-      $('#options-enableFollow').prop('checked', true);
-    }
-    updateFollowingUI();
-  });
-
-  $('#options-enableFollow').on('click', function () {
-    clientVars.ep_what_have_i_missed.enableFollow = !clientVars.ep_what_have_i_missed.enableFollow; // toggles.
-    padcookie.setPref('ep_what_have_i_missed.enableFollow', $(this).prop('checked'));
-  });
-}
-
-function loadSettings() {
-
-}
-
-function updateFollowingUI() {
-  // For each person we're following add the eye in the users list.
-  var userRows = $('#otheruserstable').contents().find('tr');
-  $.each(userRows, function () {
-    $(this).find('td > div').text('');
-  });
-  if (clientVars.ep_what_have_i_missed.followAll) {
-    var userRows = $('#otheruserstable').contents().find('tr');
-    $.each(userRows, function () {
-      $(this).find('td > div').text('👁');
-      $(this).find('td > div').css({'font-size': '12px', 'color': '#666', 'line-height': '17px', 'padding-left': '3px'});
-    });
-  } else {
-    $.each(clientVars.ep_what_have_i_missed.following, (authorId) => {
-      // find the authorId item..
-      const userRow = $('#otheruserstable').contents().find(`[data-authorid='${authorId}']`);
-      $(userRow).find('td > div').text('👁');
-      $(userRow).find('td > div').css({'font-size': '12px', 'color': '#666', 'line-height': '17px', 'padding-left': '3px'});
-    });
-  }
-}
-
-function isEditingTimeout() {
-  // on initial initialization of pad for 1 second don't drag my focus.
-  clientVars.ep_what_have_i_missed.isEditing = true;
-  clientVars.ep_what_have_i_missed.editingTimeout = setTimeout(() => {
-    clientVars.ep_what_have_i_missed.isEditing = false;
-  }, 1000);
-}
+exports.handleClientMessage_ACCEPT_COMMIT = (fnName, msg) => {
+  padcookie.setPref(`ep_what_have_i_missed:${clientVars.padId}`,
+      pad.collabClient.getCurrentRevisionNumber());
+};
