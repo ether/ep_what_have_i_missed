@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Spotter"
+		]
+	},
+	"pad.ep_what_have_i_missed_catchup.title": "Co mi chybělo?",
+	"pad.ep_what_have_i_missed_catchup.msg": "Chcete dohnat tento Pad?",
+	"pad.ep_what_have_i_missed_catchup.button": "Dohnat!"
+}
