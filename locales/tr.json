@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Hedda",
 			"MuratTheTurkish"
 		]
 	},
 	"pad.ep_what_have_i_missed_catchup.title": "Neyi kaçırdım?",
-	"pad.ep_what_have_i_missed_catchup.msg": "Bu ped ile yetişmek ister misin?",
+	"pad.ep_what_have_i_missed_catchup.msg": "Bu bloknota yetişmek ister misiniz?",
 	"pad.ep_what_have_i_missed_catchup.button": "Yetiş!"
 }
