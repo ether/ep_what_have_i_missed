@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"DDPAT"
+		]
+	},
+	"pad.ep_what_have_i_missed_catchup.title": "Я щось пропустив?",
+	"pad.ep_what_have_i_missed_catchup.msg": "Ви хочете наздогнати цей майданчик?",
+	"pad.ep_what_have_i_missed_catchup.button": "Встигай!"
+}
