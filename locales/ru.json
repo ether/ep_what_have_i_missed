@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"DDPAT",
 			"Okras"
 		]
 	},
-	"pad.ep_what_have_i_missed_catchup.title": "Что я пропустил?"
+	"pad.ep_what_have_i_missed_catchup.title": "Что я пропустил?",
+	"pad.ep_what_have_i_missed_catchup.msg": "Хотите наверстать упущенное с этим планшетом?",
+	"pad.ep_what_have_i_missed_catchup.button": "Настигнуть!"
 }
