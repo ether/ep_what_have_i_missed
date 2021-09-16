@@ -62,14 +62,17 @@ const showDiff = (padId, lastVisitRev) => {
 };
 
 const catchUpMessage = (lastVisitRev) => {
-  const msg = `${html10n.get('pad.ep_what_have_i_missed_catchup.msg')}<br><br>`;
-
-  const button = `<button class='catchUpButton'>
-      ${html10n.get('pad.ep_what_have_i_missed_catchup.button')}</button>`;
+  const msgTxt = document.createElement('p');
+  msgTxt.append(html10n.get('pad.ep_what_have_i_missed_catchup.msg'));
+  const button = document.createElement('button');
+  button.classList.add('catchUpButton');
+  button.append(html10n.get('pad.ep_what_have_i_missed_catchup.button'));
+  const msg = document.createDocumentFragment();
+  msg.append(msgTxt, button);
 
   $.gritter.add({
     title: html10n.get('pad.ep_what_have_i_missed_catchup.title'),
-    text: msg + button,
+    text: msg,
     class_name: 'warning',
     sticky: true,
   });
