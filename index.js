@@ -28,18 +28,17 @@ exports.clientVars = (hook, context, callback) => {
 
 exports.eejsBlock_mySettings = (hook, context, callback) => {
   if (!settings.ep_what_have_i_missed) settings.ep_what_have_i_missed = {};
-  context.content += eejs.require('ep_what_have_i_missed/templates/settings.ejs', {
-  });
+  context.content += eejs.require('./templates/settings.ejs', {}, module);
   callback();
 };
 
 exports.eejsBlock_customStyles = (hookName, args, cb) => {
-  args.content += eejs.require('ep_what_have_i_missed/templates/styles.html', {}, module);
+  args.content += eejs.require('./templates/styles.html', {}, module);
   cb();
 };
 
 
 exports.eejsBlock_body = (hookName, args, cb) => {
-  args.content += eejs.require('ep_what_have_i_missed/templates/diff.ejs', {}, module);
+  args.content += eejs.require('./templates/diff.ejs', {}, module);
   return cb();
 };
