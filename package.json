@@ -21,7 +21,8 @@
   },
   "eslintConfig": {
     "root": true,
-    "extends": "etherpad/plugin"
+    "extends": "etherpad/plugin",
+    "ignorePatterns": ["/static/js/diff.min.js"]
   },
   "scripts": {
     "lint": "eslint .",
