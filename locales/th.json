@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Andibecker"
+		]
+	},
+	"pad.ep_what_have_i_missed_catchup.title": "ฉันพลาดอะไรไป",
+	"pad.ep_what_have_i_missed_catchup.msg": "คุณต้องการที่จะทันกับแผ่นนี้?",
+	"pad.ep_what_have_i_missed_catchup.button": "ตามทัน!"
+}
