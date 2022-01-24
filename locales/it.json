@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"VamosErik88"
+		]
+	},
+	"pad.ep_what_have_i_missed_catchup.title": "Cosa mi sono perso?",
+	"pad.ep_what_have_i_missed_catchup.msg": "Vuoi allinearti con le modifiche di questo pad?",
+	"pad.ep_what_have_i_missed_catchup.button": "Allineati!"
+}
