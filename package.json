@@ -1,6 +1,6 @@
 {
   "name": "ep_what_have_i_missed",
-  "version": "0.0.31",
+  "version": "0.0.32",
   "description": "What have I missed when I have been away from a pad?  Diff view in a modal then additional functionality for reviewing changes",
   "author": "John McLear <john@mclear.co.uk>",
   "contributors": [],
