@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Duke of Wikipädia",
+			"YuriNikolai"
+		]
+	},
+	"pad.ep_what_have_i_missed_catchup.title": "O que eu perdi?",
+	"pad.ep_what_have_i_missed_catchup.msg": "Deseja acompanhar esta nota?",
+	"pad.ep_what_have_i_missed_catchup.button": "Acompanhar!"
+}
