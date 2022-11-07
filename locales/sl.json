@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"pad.ep_what_have_i_missed_catchup.title": "Kaj sem zamudil/a?",
+	"pad.ep_what_have_i_missed_catchup.msg": "Ali želite pregledati spremembe tega blokca?",
+	"pad.ep_what_have_i_missed_catchup.button": "Prikaži!"
+}
