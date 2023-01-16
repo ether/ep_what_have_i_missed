@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Justman10000",
 			"Pittigrilli"
 		]
 	},
-	"pad.ep_what_have_i_missed_catchup.title": "Was habe ich verpasst?"
+	"pad.ep_what_have_i_missed_catchup.title": "Was habe ich verpasst?",
+	"pad.ep_what_have_i_missed_catchup.msg": "Willst du dich mit diesem Pad auf den neuesten Stand bringen?",
+	"pad.ep_what_have_i_missed_catchup.button": "Holt auf!"
 }
