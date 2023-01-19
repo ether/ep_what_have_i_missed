@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"pad.ep_what_have_i_missed_catchup.title": "Que me ha mancate?",
+	"pad.ep_what_have_i_missed_catchup.msg": "Vole tu poner te al currente con iste pad?",
+	"pad.ep_what_have_i_missed_catchup.button": "Actualisar!"
+}
