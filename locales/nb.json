@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jon Harald Søby"
+		]
+	},
+	"pad.ep_what_have_i_missed_catchup.title": "Hva har jeg gått glipp av?",
+	"pad.ep_what_have_i_missed_catchup.msg": "Ønsker du å oppdatere deg på denne blokka?",
+	"pad.ep_what_have_i_missed_catchup.button": "Oppdater deg!"
+}
