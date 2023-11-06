@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joao Xavier"
+		]
+	},
+	"pad.ep_what_have_i_missed_catchup.title": "Quon me perdis?",
+	"pad.ep_what_have_i_missed_catchup.msg": "Ka vu deziras akompanar ca noto?",
+	"pad.ep_what_have_i_missed_catchup.button": "Akompanez!"
+}
