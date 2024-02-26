@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Dr1t jg",
 			"그냥기여자"
 		]
 	},
-	"pad.ep_what_have_i_missed_catchup.title": "무엇을 놓쳤습니까?"
+	"pad.ep_what_have_i_missed_catchup.title": "무엇을 놓쳤습니까?",
+	"pad.ep_what_have_i_missed_catchup.msg": "이 패드를 따라가고 싶어?",
+	"pad.ep_what_have_i_missed_catchup.button": "따라잡아!"
 }
