@@ -1,6 +1,6 @@
 {
   "name": "ep_what_have_i_missed",
-  "version": "0.0.53",
+  "version": "0.0.54",
   "description": "What have I missed when I have been away from a pad?  Diff view in a modal then additional functionality for reviewing changes",
   "author": "John McLear <john@mclear.co.uk>",
   "contributors": [],
@@ -10,19 +10,16 @@
     "url": "https://etherpad.org/"
   },
   "devDependencies": {
-    "eslint": "^8.51.0",
-    "eslint-config-etherpad": "^3.0.12",
-    "typescript": "^4.9.5"
+    "eslint": "^8.57.0",
+    "eslint-config-etherpad": "^4.0.4",
+    "typescript": "^5.4.2"
   },
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint --fix ."
   },
   "engines": {
-    "node": ">=12.17.0"
-  },
-  "peerDependencies": {
-    "ep_etherpad-lite": ">=1.8.6"
+    "node": ">=18.0.0"
   },
   "repository": {
     "type": "git",
