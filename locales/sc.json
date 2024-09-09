@@ -4,5 +4,7 @@
 			"Adr mm"
 		]
 	},
-	"pad.ep_what_have_i_missed_catchup.title": "Ite mi so pèrdidu?"
+	"pad.ep_what_have_i_missed_catchup.title": "Ite mi so pèrdidu?",
+	"pad.ep_what_have_i_missed_catchup.msg": "Ti boles pònnere a pare cun custu pad?",
+	"pad.ep_what_have_i_missed_catchup.button": "Pone·ti a pare!"
 }
