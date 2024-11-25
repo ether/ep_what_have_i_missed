@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Akmaie Ajam",
 			"Veracious"
 		]
 	},
-	"pad.ep_what_have_i_missed_catchup.title": "Apa yang saya lewatkan?"
+	"pad.ep_what_have_i_missed_catchup.title": "Apa yang saya lewatkan?",
+	"pad.ep_what_have_i_missed_catchup.msg": "Apakah Anda ingin mengejar ketinggalan dengan pad ini?",
+	"pad.ep_what_have_i_missed_catchup.button": "Kejar!"
 }
