@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Usagi.02808"
+		]
+	},
+	"pad.ep_what_have_i_missed_catchup.title": "Co przegapiłem?",
+	"pad.ep_what_have_i_missed_catchup.msg": "Chcesz nadrobić zaległości w czytaniu tego dokumentu?",
+	"pad.ep_what_have_i_missed_catchup.button": "Nadrób zaległości!"
+}
