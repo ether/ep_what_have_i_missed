@@ -28,7 +28,7 @@ Use the ``/admin`` interface, search for ``ep_what_have_i_missed`` and click Ins
 
 Option 2.
 ```
-npm install ep_what_have_i_missed
+pnpm run plugins install ep_what_have_i_missed
 ```
 
 Option 3.
