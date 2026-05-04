@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ghose"
+			"Ghose",
+			"Toliño"
 		]
 	},
-	"pad.ep_what_have_i_missed_catchup.title": "O que perdín?",
-	"pad.ep_what_have_i_missed_catchup.msg": "Queres poñerte ao día con este pad?",
+	"pad.ep_what_have_i_missed_catchup.title": "Que me perdín?",
+	"pad.ep_what_have_i_missed_catchup.msg": "Queres poñerte ao día con este documento?",
 	"pad.ep_what_have_i_missed_catchup.button": "Ao día!"
 }
