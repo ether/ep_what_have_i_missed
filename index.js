@@ -35,8 +35,8 @@ exports.eejsBlock_mySettings = (hook, context, callback) => {
 };
 
 exports.eejsBlock_customStyles =
-    template('./templates/styles.html');
+    template('ep_what_have_i_missed/templates/styles.html');
 
 
 exports.eejsBlock_body =
-    template('./templates/diff.ejs');
+    template('ep_what_have_i_missed/templates/diff.ejs');
