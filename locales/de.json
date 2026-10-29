@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Justman10000",
+			"Nbux",
 			"Pittigrilli",
 			"SamTV"
 		]
 	},
 	"pad.ep_what_have_i_missed_catchup.title": "Was habe ich verpasst?",
-	"pad.ep_what_have_i_missed_catchup.msg": "Willst du dich mit diesem Pad auf den neuesten Stand bringen?",
+	"pad.ep_what_have_i_missed_catchup.msg": "Willst du dich auf den neuesten Stand dieses Pads bringen?",
 	"pad.ep_what_have_i_missed_catchup.button": "Auf den neuesten Stand bringen!"
 }
